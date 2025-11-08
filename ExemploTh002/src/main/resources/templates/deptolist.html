@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Departamentos</title>
+</head>
+<body>
+	<h1>Departamentos</h1>
+	<a th:href="@{/departamentos/cadastro}">Novo Departamento</a>
+	<table border="1">
+	<thead>
+		<tr><th>IdDepto</th><th>Nome</th><th>Opcoes</th></tr>
+	</thead>
+	<tbody th:remove="all-but-first">
+		<tr th:each="depto : ${departamentos}">
+			<td th:text="${depto.idDepto}"></td>
+			<td th:text="${depto.nome}"></td>
+			<td>
+<a th:href="@{/departamentos/excluir(idDepto=${depto.idDepto})}">
+	Excluir</a>
+<a th:href="@{/departamentos/cadastro/{id}(id=${depto.idDepto})}">
+	Alterar</a>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+</body>
+</html>

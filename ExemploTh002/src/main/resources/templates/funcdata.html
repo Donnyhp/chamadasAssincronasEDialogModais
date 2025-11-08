@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Funcionario</title>
+	</head>
+	<body>
+		<h1>Dados do Funcionário</h1>
+		<form th:object="${funcionario}"
+			th:action="@{/funcionarios/cadastro}" method="post">
+		<p>
+			<label for="matricula">Matricula</label>
+			<input id="matricula" type="text" th:field="*{matricula}"/>
+		</p>
+		<p>
+			<label for="nome">Nome</label>
+			<input id="nome" type="text" th:field="*{nome}"/>
+		</p>
+		<p>
+			<label for="departamento">Departamento</label>
+			<select id="departamento" th:field="*{departamento}">
+				<option th:each="depto: ${deptos}"
+						th:value="${depto.idDepto}" th:text="${depto.nome}"/>					
+			</select> 
+		</p>
+		<button type="submit">Cadastrar</button>
+		</form>
+	</body>
+</html>

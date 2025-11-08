@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Departamentos</title>
+	</head>
+	<body>
+		<h1>Dados do Departamento</h1>
+		<form th:object="${depto}"
+			th:action="@{/departamentos/cadastro}" method="post">
+		<input id="idDepto" type="hidden" th:field="*{idDepto}"/>
+		<p>
+			<label for="nome">Nome</label>
+			<input id="nome" type="text" th:field="*{nome}"/>
+		</p>
+		<button type="submit">Cadastrar</button>
+		</form>
+	</body>
+</html>
+		
